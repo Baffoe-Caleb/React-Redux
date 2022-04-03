@@ -6,6 +6,7 @@
   font-family: "Quicksand";
   color: #333;
 }
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -14,33 +15,46 @@
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
+
 .navbar h1 {
   color: orangered;
 }
+
 .navbar .links {
   margin-left: auto;
 }
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
+
 .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
 }
-.category-preview{
-  display:flex;
+
+/* category previews / list */
+.category-preview {
   padding: 10px 16px;
-  margin:20px 0;
-  border-bottom: 1px solid;
- text-align: center;
-}
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-}
-.blog-preview a{
-  text-decoration: none;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  text-transform: uppercase;
+ cursor: pointer;
 }
 
+.category-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.List h3 {
+  font-size: 25px;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.category-preview a {
+  text-decoration: none;
+}

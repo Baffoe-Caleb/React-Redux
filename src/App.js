@@ -4,7 +4,8 @@ import Home from "./Home";
 import { Provider } from 'react-redux'
 import { store, persistor } from './Redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
-
+import RandomJoke from "./RandomJoke";
+import CategoryRandomJoke from "./CategoryRandomJoke";
 
 function App() {
 
@@ -20,6 +21,11 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route exact path="/random">
+                <RandomJoke />
+              </Route>
+              <Route exact path="/categoryRandomjoke" component={CategoryRandomJoke}>
               </Route>
             </Switch>
           </div>

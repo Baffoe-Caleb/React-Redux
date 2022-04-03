@@ -32,14 +32,14 @@ const api = apisauce.create({
 // Since we can't hide from that, we embrace it by getting out of the
 // way at this level.
 //
-const setAuthToken = (userAuth) => api.setHeader('Authorization', 'Bearer ' + userAuth)
-const removeAuthToken = () => api.deleteHeader('Authorization')
+// const setAuthToken = (userAuth) => api.setHeader('Authorization', 'Bearer ' + userAuth)
+// const removeAuthToken = () => api.deleteHeader('Authorization')
 // const getOauthInfo = () => api.get('api/v1/auth-info')
 // const getOauthIssuerInfo = (issuerUrl) => api.get(`${issuerUrl}/.well-known/openid-configuration`)
 
 const getCategoryList = () => api.get('categories')
-const getRandomJokes = () => api.get('jokes/random') 
-const getRandomCategoryJoke = (category) => api.get('jokes/random?category='+ category)
+const getRandomJokes = () => api.get('random')
+const getRandomCategoryJoke = (category) => api.get('random?category=' + category)
 // ignite-jhipster-api-method-needle
 
 // ------
@@ -58,12 +58,12 @@ export {
 	// a list of the API functions from step 2
 
 	// ignite-jhipster-api-export-needle
-	setAuthToken,
-	removeAuthToken,
+	// setAuthToken,
+	// removeAuthToken,
 	getCategoryList,
 	// getOauthInfo,
 	// getOauthIssuerInfo,
 	getRandomCategoryJoke,
 	getRandomJokes,
-	
+
 }

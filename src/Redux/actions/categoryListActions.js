@@ -1,7 +1,7 @@
 // export const CATEGORIES_REQUEST = "CATEGORIES_REQUEST" ;
 // export const CATEGORIES_SUCCESS = "CATEGORIES_SUCCESS" ;
 // export function categoriesRequest() {
-  
+
 //    return {
 //       type: CATEGORIES_REQUEST,
 //    }
