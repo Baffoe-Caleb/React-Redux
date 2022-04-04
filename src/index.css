@@ -42,7 +42,7 @@
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
   text-transform: uppercase;
- cursor: pointer;
+  cursor: pointer;
 }
 
 .category-preview:hover {
@@ -52,9 +52,21 @@
 .List h3 {
   font-size: 25px;
   color: black;
-  margin-bottom: 8px;
+  margin-top: -51px;
+  margin-bottom: 50px;
 }
 
 .category-preview a {
   text-decoration: none;
+}
+
+.List button {
+  text-align: center;
+  font-size: large;
+  border-radius: 7px;
+  display: flex;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  width: 140px;
+  margin-bottom: 20px;
+  margin-left: 77%;
 }
