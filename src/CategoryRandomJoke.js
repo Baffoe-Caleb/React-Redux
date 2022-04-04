@@ -1,12 +1,11 @@
 
 const CategoryRandomJoke = (props) => {
-    const joke = props.location.state?props.location.state.joke: null
-   
+    const joke = props.location.state ? props.location.state.joke : null
+console.log(joke)
     return (
-        <div>
-            <h2>Random Joke from This Category</h2>
-            {joke && <h3>{joke.value}</h3>
-            }        </div>
+        <div className="joke-preview">
+            {joke && <h3>{joke.value}</h3>}
+        </div>
     )
 }
 

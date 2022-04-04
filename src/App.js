@@ -22,8 +22,7 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path="/random">
-                <RandomJoke />
+              <Route exact path="/randomJoke" component={RandomJoke}>
               </Route>
               <Route exact path="/categoryRandomjoke" component={CategoryRandomJoke}>
               </Route>

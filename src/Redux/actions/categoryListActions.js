@@ -21,12 +21,15 @@ import { createActions } from 'reduxsauce'
 const { Types, Creators } = createActions({
     categoriesRequest: [],
     randomCategoryJokeRequest: ['category'],
+    randomJokeRequest: [],
 
     categoriesSuccess: ['categoryList'],
     randomCategoryJokeSuccess: ['joke'],
+    randomJokeSuccess: ['randomJoke'],
 
     categoriesFailure: ['error'],
     randomCategoryJokeFailure: ['error'],
+    randomJokeFailure: ['error'],
 })
 
 export const CategoriesTypes = Types

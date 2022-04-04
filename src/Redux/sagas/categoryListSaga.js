@@ -8,10 +8,21 @@ export function* getCategoryList(action) {
 
    const response = yield call (api.getCategoryList ) 
    if (response.ok) {
-      //  console.log(response);
+        // console.log(response);
        yield put (CategoriesListActions.categoriesSuccess(response.data))
     } else {
         yield put (CategoriesListActions.categoriesFailure(response.data))
+    }
+
+}
+export function* getRandomJokes(action) {
+
+   const response = yield call (api.getRandomJokes ) 
+   if (response.ok) {
+        // console.log(response);
+       yield put (CategoriesListActions.randomJokeSuccess(response.data))
+    } else {
+        yield put (CategoriesListActions.randomJokeFailure(response.data))
     }
 
 }

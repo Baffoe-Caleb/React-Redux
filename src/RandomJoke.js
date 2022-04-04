@@ -1,10 +1,11 @@
+// 
 
-const RandomJoke = () => {
+const RandomJoke = (props) => {
+  const joke = props.location.state ? props.location.state.joke : null
+  console.log(joke);
   return (
     <div>
-        <h2>
-            Hello Random Jokes
-        </h2>
+      {joke && <h3>{joke.value}</h3>}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 const Navbar = () => {
+
   return (
     <nav className="navbar">
       <h1>The ChuckNorris Jokes</h1>
@@ -12,13 +13,13 @@ const Navbar = () => {
             borderRadius: '8px'
           }}
         >Home</Link>
-        <Link to="/random"
+        {/* <Link to="/random"
           style={{
             color: 'white',
             backgroundColor: "orange",
             borderRadius: '8px'
           }}
-        >Random Joke</Link>
+        >Random Joke</Link> */}
       </div>
     </nav>
   )

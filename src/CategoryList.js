@@ -14,15 +14,20 @@ const CategoryList = () => {
     const fetchingCategoryList = useSelector((state) => state.categoryList.fetchingCategoryList)
     const fetchingCategoryJoke = useSelector((state) => state.categoryList.fetchingCategoryJoke)
     const categoryJoke = useSelector((state) => state.categoryList.categoryJoke)
+    const randomJoke = useSelector((state) => state.categoryList.randomJoke)
+    const fetchingRandomJoke = useSelector((state) => state.categoryList.fetchingRandomJoke)
 
 
     // redux dispatch actions
     const dispatch = useDispatch();
     const getCategoryList = () => dispatch(CategoriesListActions.categoriesRequest())
     const getRandomCategoryJoke = (category) => dispatch(CategoriesListActions.randomCategoryJokeRequest(category))
+    const getRandomJoke = () => dispatch(CategoriesListActions.randomJokeRequest())
 
     const [fetchJoke, setFetchJoke] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [joke, setJoke] = useState(false)
+
     useEffect(() => {
         getCategoryList();
 
@@ -32,7 +37,7 @@ const CategoryList = () => {
         // or   if(categoryList!==null && fetchingCategoryList===false)
         if (categoryList && !fetchingCategoryList) {
             setCategories(categoryList)
-            console.log(categoryList)
+            // console.log(categoryList)
         }
         if (categoryJoke && !fetchingCategoryJoke && fetchJoke) {
             setFetchJoke(false)
@@ -40,20 +45,33 @@ const CategoryList = () => {
             history.push({ pathname: "/categoryRandomJoke", state: { joke: categoryJoke } })
             console.log(categoryJoke)
         }
-        //   console.log(categoryList)
-    }, [categoryList, fetchingCategoryList, categoryJoke, fetchingCategoryJoke])
+        // console.log(categoryList)
+        if (randomJoke && !fetchingRandomJoke && joke) {
+            setJoke(false)
+            // history.push({ pathname: "/randomJoke", state: {joke: randomJoke}})
+
+        }
+    }, [categoryList, fetchingCategoryList, categoryJoke, fetchingCategoryJoke, randomJoke, fetchingRandomJoke])
 
     const onClickHandler = (category) => {
         // alert("Hello From Chuck Norris");
         getRandomCategoryJoke(category);
         setFetchJoke(true)
-        // console.log(category)
+        //  console.log(category)
+    }
+
+    const OnCategoryClick = (joke) => {
+        history.push({pathname:"/RandomJoke", state: {joke: randomJoke}});
+        getRandomJoke(joke);
+        setJoke(true)
+        console.log(randomJoke)
     }
 
 
     return (
         <div className='List'>
             <h3>List of Categories</h3>
+            <button onClick={OnCategoryClick}>Random Joke</button>
             <div className="category"></div>
             {categories && categories.map((item, key) =>
                 <div className="category-preview" key={key}
