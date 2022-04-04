@@ -83,8 +83,8 @@ export const randomJokeSuccess = (state, action) => {
    const { randomJoke } = action
    return {
       ...state,
-      fetchingCategoryJoke: false,
-      errorCategoryJoke: null,
+      fetchingRandomJoke: false,
+      errorRandomJoke: null,
       randomJoke
    }
 }

@@ -48,7 +48,7 @@ const CategoryList = () => {
         // console.log(categoryList)
         if (randomJoke && !fetchingRandomJoke && joke) {
             setJoke(false)
-            // history.push({ pathname: "/randomJoke", state: {joke: randomJoke}})
+            history.push({ pathname: "/randomJoke", state: { joke: randomJoke } })
 
         }
     }, [categoryList, fetchingCategoryList, categoryJoke, fetchingCategoryJoke, randomJoke, fetchingRandomJoke])
@@ -60,8 +60,8 @@ const CategoryList = () => {
         //  console.log(category)
     }
 
-    const OnRandomJokeBtnClick = (joke) => {
-        history.push({ pathname: "/RandomJoke", state: { joke: randomJoke } });
+    const onRandomJokeBtnClick = (joke) => {
+        // history.push({ pathname: "/RandomJoke", state: { joke: randomJoke } });
         getRandomJoke(joke);
         setJoke(true)
         console.log(randomJoke)
@@ -71,7 +71,7 @@ const CategoryList = () => {
     return (
 
         <div className='List'>
-            <button onClick={OnRandomJokeBtnClick}>Random Joke</button>
+            <button onClick={onRandomJokeBtnClick}>Random Joke</button>
             <h3>List of Categories</h3>
             <div className="category"></div>
             {categories && categories.map((item, key) =>
