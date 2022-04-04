@@ -60,7 +60,7 @@ const CategoryList = () => {
         //  console.log(category)
     }
 
-    const OnCategoryClick = (joke) => {
+    const OnRandomJokeBtnClick = (joke) => {
         history.push({ pathname: "/RandomJoke", state: { joke: randomJoke } });
         getRandomJoke(joke);
         setJoke(true)
@@ -71,7 +71,7 @@ const CategoryList = () => {
     return (
 
         <div className='List'>
-            <button onClick={OnCategoryClick}>Random Joke</button>
+            <button onClick={OnRandomJokeBtnClick}>Random Joke</button>
             <h3>List of Categories</h3>
             <div className="category"></div>
             {categories && categories.map((item, key) =>
