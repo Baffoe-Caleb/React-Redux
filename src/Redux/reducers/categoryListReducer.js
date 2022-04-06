@@ -60,7 +60,7 @@ export const categoryJokeRequest = (state) => { return { ...state, fetchingCateg
 export const randomJokeRequest = (state) => { return { ...state, fetchingRandomJoke: true, randomJoke: null } }
 
 //request for the list of jokes from an api using the query
-export const jokeListRequest = (state) => {return { ...state, fetchingListOfJokes:true, jokeList:null}} 
+export const jokeListRequest = (state) => { return { ...state, fetchingListOfJokes: true, jokeList: null } }
 
 
 // successful api lookup for category list
@@ -95,13 +95,13 @@ export const randomJokeSuccess = (state, action) => {
    }
 }
 // successful api lookup for list of jokes
-export const listOfJokesSuccess = (state, action) => {
+export const jokeListSuccess = (state, action) => {
    const { jokes } = action
    return {
       ...state,
       fetchingListOfJokes: false,
       errorJokeList: null,
-      jokes
+      jokeList: jokes
    }
 }
 
@@ -137,7 +137,7 @@ export const randomJokeFailure = (state, action) => {
    }
 }
 // Something went wrong fetching list of jokes
-export const listOfJokesFailure = (state, action) => {
+export const jokeListFailure = (state, action) => {
    const { error } = action
    return {
       ...state,
@@ -153,15 +153,15 @@ export const reducer = createReducer(INITIAL_STATE, {
    [CategoriesTypes.CATEGORIES_REQUEST]: categoryListRequest,
    [CategoriesTypes.RANDOM_CATEGORY_JOKE_REQUEST]: categoryJokeRequest,
    [CategoriesTypes.RANDOM_JOKE_REQUEST]: randomJokeRequest,
-   [CategoriesTypes.LIST_OF_JOKES_REQUEST]: jokeListRequest,
+   [CategoriesTypes.JOKE_LIST_REQUEST]: jokeListRequest,
 
    [CategoriesTypes.CATEGORIES_SUCCESS]: categoriesListSuccess,
    [CategoriesTypes.RANDOM_CATEGORY_JOKE_SUCCESS]: categoryJokeSuccess,
    [CategoriesTypes.RANDOM_JOKE_SUCCESS]: randomJokeSuccess,
-   [CategoriesTypes.LIST_OF_JOKES_SUCCESS]: listOfJokesSuccess,
+   [CategoriesTypes.JOKE_LIST_SUCCESS]: jokeListSuccess,
 
    [CategoriesTypes.CATEGORIES_FAILURE]: categoriesListFailure,
    [CategoriesTypes.RANDOM_CATEGORY_JOKE_FAILURE]: categoriesJokeFailure,
    [CategoriesTypes.RANDOM_JOKE_FAILURE]: randomJokeFailure,
-   // [CategoriesTypes.LIST_OF_JOKE_FAILURE]: listOfJokesFailure,
+   [CategoriesTypes.JOKE_LIST_FAILURE]: jokeListFailure,
 })

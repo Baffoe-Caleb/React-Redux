@@ -26,7 +26,7 @@ const CategoryList = () => {
     const [fetchJoke, setFetchJoke] = useState(false);
     const [categories, setCategories] = useState([]);
     const [joke, setJoke] = useState(false)
-
+    
     useEffect(() => {
         getCategoryList();
 

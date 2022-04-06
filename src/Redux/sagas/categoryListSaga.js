@@ -1,6 +1,4 @@
 import { takeLatest, put, call } from "redux-saga/effects";
-import { categoriesRequest, categoriesSuccess } from "../actions/categoryListActions";
-//import axios from "axios";
 import * as api from "../../api";
 import CategoriesListActions from "../actions/categoryListActions";
 
@@ -38,14 +36,14 @@ export function* getRandomCategoryJoke(action) {
     }
 
 }
-export function* getListOfJokes(action) {
+export function* getListOfJoke(action) {
     const { query } = action
-    
+
     const response = yield call(api.getListOfJokes, query)
-    if (response.ok){
-        console.log(response);
-        yield put(CategoriesListActions.listOfJokesSuccess(response.data))
-    } else{
-        yield put (CategoriesListActions.listOfJokesFailure(response.data))
+    if (response.ok) {
+     //   console.log(response.data.result);
+        yield put(CategoriesListActions.jokeListSuccess(response.data))
+    } else {
+        yield put(CategoriesListActions.jokeListFailure(response.data))
     }
 }

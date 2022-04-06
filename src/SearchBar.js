@@ -14,7 +14,7 @@ const SearchBar = ({ placeholder }) => {
 
     // redux dispatch actions
     const dispatch = useDispatch();
-    const getListOfJokes = () => dispatch(CategoriesListActions.listOfJokesRequest())
+    const getListOfJokes = (query) => dispatch(CategoriesListActions.jokeListRequest(query))
 
     const [query, setQuery] = useState("")
     //  useEffect(() => console.log(query),[query])
@@ -23,6 +23,7 @@ const SearchBar = ({ placeholder }) => {
         if (query === null || query === "") {
             return alert("Enter a random word to search");
         }
+        console.log(query)
         getListOfJokes(query)
         history.push({ pathname: "/searchResults" })
 
