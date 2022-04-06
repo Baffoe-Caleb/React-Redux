@@ -1,4 +1,5 @@
 import { takeLatest, all } from 'redux-saga/effects'
+import { getListOfJokes } from '../../api'
 
 //import action types
 import { CategoriesTypes } from '../actions/categoryListActions'
@@ -14,6 +15,8 @@ export default function* rootSaga() {
         takeLatest(CategoriesTypes.RANDOM_CATEGORY_JOKE_REQUEST, getRandomCategoryJoke),
 
         takeLatest(CategoriesTypes.RANDOM_JOKE_REQUEST, getRandomJokes),
+
+        takeLatest(CategoriesTypes.LIST_OF_JOKES_REQUEST, getListOfJokes),
 
     ])
 }

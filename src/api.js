@@ -40,6 +40,7 @@ const api = apisauce.create({
 const getCategoryList = () => api.get('categories')
 const getRandomJokes = () => api.get('random')
 const getRandomCategoryJoke = (category) => api.get('random?category=' + category)
+const getListOfJokes = (query) => api.get('search?query=' + query)
 // ignite-jhipster-api-method-needle
 
 // ------
@@ -65,5 +66,6 @@ export {
 	// getOauthIssuerInfo,
 	getRandomCategoryJoke,
 	getRandomJokes,
+	getListOfJokes,
 
 }

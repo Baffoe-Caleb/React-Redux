@@ -6,7 +6,7 @@ import { store, persistor } from './Redux/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import RandomJoke from "./RandomJoke";
 import CategoryRandomJoke from "./CategoryRandomJoke";
-
+import SearchResults from "./SearchResults";
 
 function App() {
 
@@ -26,6 +26,9 @@ function App() {
               <Route exact path="/randomJoke" component={RandomJoke}>
               </Route>
               <Route exact path="/categoryRandomjoke" component={CategoryRandomJoke}>
+              </Route>
+              <Route>
+                <SearchResults />
               </Route>
             </Switch>
           </div>

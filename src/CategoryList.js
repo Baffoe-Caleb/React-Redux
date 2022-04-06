@@ -16,8 +16,7 @@ const CategoryList = () => {
     const categoryJoke = useSelector((state) => state.categoryList.categoryJoke)
     const randomJoke = useSelector((state) => state.categoryList.randomJoke)
     const fetchingRandomJoke = useSelector((state) => state.categoryList.fetchingRandomJoke)
-
-
+   
     // redux dispatch actions
     const dispatch = useDispatch();
     const getCategoryList = () => dispatch(CategoriesListActions.categoriesRequest())

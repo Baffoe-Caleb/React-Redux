@@ -6,35 +6,46 @@ import CategoriesListActions from "../actions/categoryListActions";
 
 export function* getCategoryList(action) {
 
-   const response = yield call (api.getCategoryList ) 
-   if (response.ok) {
+    const response = yield call(api.getCategoryList)
+    if (response.ok) {
         // console.log(response);
-       yield put (CategoriesListActions.categoriesSuccess(response.data))
+        yield put(CategoriesListActions.categoriesSuccess(response.data))
     } else {
-        yield put (CategoriesListActions.categoriesFailure(response.data))
+        yield put(CategoriesListActions.categoriesFailure(response.data))
     }
 
 }
 export function* getRandomJokes(action) {
 
-   const response = yield call (api.getRandomJokes ) 
-   if (response.ok) {
+    const response = yield call(api.getRandomJokes)
+    if (response.ok) {
         // console.log(response);
-       yield put (CategoriesListActions.randomJokeSuccess(response.data))
+        yield put(CategoriesListActions.randomJokeSuccess(response.data))
     } else {
-        yield put (CategoriesListActions.randomJokeFailure(response.data))
+        yield put(CategoriesListActions.randomJokeFailure(response.data))
     }
 
 }
 export function* getRandomCategoryJoke(action) {
-    const {category} = action
+    const { category } = action
 
-   const response = yield call (api.getRandomCategoryJoke, category ) 
-   if (response.ok) {
+    const response = yield call(api.getRandomCategoryJoke, category)
+    if (response.ok) {
         // console.log(response);
-       yield put (CategoriesListActions.randomCategoryJokeSuccess(response.data))
+        yield put(CategoriesListActions.randomCategoryJokeSuccess(response.data))
     } else {
-        yield put (CategoriesListActions.randomCategoryJokeFailure(response.data))
+        yield put(CategoriesListActions.randomCategoryJokeFailure(response.data))
     }
 
+}
+export function* getListOfJokes(action) {
+    const { query } = action
+    
+    const response = yield call(api.getListOfJokes, query)
+    if (response.ok){
+        console.log(response);
+        yield put(CategoriesListActions.listOfJokesSuccess(response.data))
+    } else{
+        yield put (CategoriesListActions.listOfJokesFailure(response.data))
+    }
 }

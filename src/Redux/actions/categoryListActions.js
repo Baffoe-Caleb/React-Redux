@@ -22,14 +22,17 @@ const { Types, Creators } = createActions({
     categoriesRequest: [],
     randomCategoryJokeRequest: ['category'],
     randomJokeRequest: [],
+    listOfJokesRequest: ['query'],
 
     categoriesSuccess: ['categoryList'],
     randomCategoryJokeSuccess: ['joke'],
     randomJokeSuccess: ['randomJoke'],
+    listOfJokesSuccess: ['jokes'],
 
     categoriesFailure: ['error'],
     randomCategoryJokeFailure: ['error'],
     randomJokeFailure: ['error'],
+    listOfJokesFailure: ['error'],
 })
 
 export const CategoriesTypes = Types
