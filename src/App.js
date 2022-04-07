@@ -7,6 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import RandomJoke from "./RandomJoke";
 import CategoryRandomJoke from "./CategoryRandomJoke";
 import SearchResults from "./SearchResults";
+import JokeDetails from "./JokeDetails";
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
               <Route exact path="/randomJoke" component={RandomJoke}>
               </Route>
               <Route exact path="/categoryRandomjoke" component={CategoryRandomJoke}>
+              </Route>
+              <Route exact path="/JokeDetails/:id" component={JokeDetails}>
+                <JokeDetails />
               </Route>
               <Route>
                 <SearchResults />

@@ -11,15 +11,9 @@ const Navbar = () => {
             color: 'white',
             backgroundColor: "orangered",
             borderRadius: '8px'
-          }}
-        >Home</Link>
-        {/* <Link to="/random"
-          style={{
-            color: 'white',
-            backgroundColor: "orange",
-            borderRadius: '8px'
-          }}
-        >Random Joke</Link> */}
+          }}>
+          Home
+        </Link>
       </div>
     </nav>
   )

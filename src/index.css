@@ -104,15 +104,17 @@
 
 .jokeResults-preview {
   width: 600px;
-  /* white-space: nowrap; */
   overflow: hidden;
   padding: 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
-  /* text-overflow: ellipsis; */
   cursor: pointer;
 }
 
 .jokeResults-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.jokeResults-preview a {
+  text-decoration: none;
 }

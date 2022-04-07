@@ -16,7 +16,7 @@ const CategoryList = () => {
     const categoryJoke = useSelector((state) => state.categoryList.categoryJoke)
     const randomJoke = useSelector((state) => state.categoryList.randomJoke)
     const fetchingRandomJoke = useSelector((state) => state.categoryList.fetchingRandomJoke)
-   
+
     // redux dispatch actions
     const dispatch = useDispatch();
     const getCategoryList = () => dispatch(CategoriesListActions.categoriesRequest())
@@ -26,7 +26,7 @@ const CategoryList = () => {
     const [fetchJoke, setFetchJoke] = useState(false);
     const [categories, setCategories] = useState([]);
     const [joke, setJoke] = useState(false)
-    
+
     useEffect(() => {
         getCategoryList();
 
@@ -53,14 +53,11 @@ const CategoryList = () => {
     }, [categoryList, fetchingCategoryList, categoryJoke, fetchingCategoryJoke, randomJoke, fetchingRandomJoke])
 
     const onClickHandler = (category) => {
-        // alert("Hello From Chuck Norris");
         getRandomCategoryJoke(category);
         setFetchJoke(true)
-        //  console.log(category)
     }
 
     const onRandomJokeBtnClick = (joke) => {
-        // history.push({ pathname: "/RandomJoke", state: { joke: randomJoke } });
         getRandomJoke(joke);
         setJoke(true)
         console.log(randomJoke)
@@ -74,12 +71,10 @@ const CategoryList = () => {
             <h3>List of Categories</h3>
             <div className="category"></div>
             {categories && categories.map((item, key) =>
-                <div className="category-preview" key={key}
-                >
-                    {/* <Link to="/categoryRandomJoke"> */}
-                    <div onClick={() => onClickHandler(item)}
-                    > {item} </div>
-                    {/* </Link> */}
+                <div className="category-preview" key={key}>
+                    <div onClick={() => onClickHandler(item)}>
+                        {item}
+                    </div>
                 </div>
             )}
         </div>
