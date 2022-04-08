@@ -17,16 +17,13 @@ const SearchBar = ({ placeholder }) => {
     const getListOfJokes = (query) => dispatch(CategoriesListActions.jokeListRequest(query))
 
     const [query, setQuery] = useState("")
-    //  useEffect(() => console.log(query),[query])
 
     const onClickSearchBtn = () => {
         if (query === null || query === "") {
             return alert("Enter a random word to search");
         }
-        console.log(query)
         getListOfJokes(query)
         history.push({ pathname: "/searchResults" })
-
     }
 
     return (

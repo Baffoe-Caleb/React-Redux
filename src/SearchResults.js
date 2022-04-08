@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import Pagination from 'rc-pagination';
-
-
+import localeInfo from './locale/en_US'
 
 const SearchResults = () => {
   // fetch from redux state
@@ -59,13 +58,18 @@ const SearchResults = () => {
         </div>
       )}
       {showPagination &&
-        <Pagination
-          showTotal={(total, range) =>
-            `${range[0]} - ${range[1]} of ${total} items`
-          }
-          total={state.total}
-          onChange={onPageChange}
-        />
+        <div className="pagination">
+          <li>
+            <Pagination
+              showTotal={(total, range) =>
+                `${range[0]} - ${range[1]} of ${total} items`
+              }
+              total={state.total}
+              onChange={onPageChange}
+              locale={localeInfo}
+            />
+          </li>
+        </div>
       }
     </div>
   )

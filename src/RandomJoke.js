@@ -1,4 +1,3 @@
-// 
 
 const RandomJoke = (props) => {
   const joke = props.location.state ? props.location.state.joke : null

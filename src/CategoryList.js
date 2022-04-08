@@ -33,18 +33,13 @@ const CategoryList = () => {
     }, [])
 
     useEffect(() => {
-        // or   if(categoryList!==null && fetchingCategoryList===false)
         if (categoryList && !fetchingCategoryList) {
             setCategories(categoryList)
-            // console.log(categoryList)
         }
         if (categoryJoke && !fetchingCategoryJoke && fetchJoke) {
             setFetchJoke(false)
-            //this is where we passed the joke to the CategoryRandomJoke component as props method
             history.push({ pathname: "/categoryRandomJoke", state: { joke: categoryJoke } })
-            console.log(categoryJoke)
         }
-        // console.log(categoryList)
         if (randomJoke && !fetchingRandomJoke && joke) {
             setJoke(false)
             history.push({ pathname: "/randomJoke", state: { joke: randomJoke } })
@@ -59,10 +54,7 @@ const CategoryList = () => {
 
     const onRandomJokeBtnClick = (joke) => {
         getRandomJoke(joke);
-        setJoke(true)
-        console.log(randomJoke)
-    }
-
+        setJoke(true)    }
 
     return (
 

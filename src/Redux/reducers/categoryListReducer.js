@@ -1,31 +1,3 @@
-// import {CATEGORIES_SUCCESS, CATEGORIES_REQUEST} from "../actions/categoryListActions"
-
-// const initialState = {
-//     isLoading: false,
-//     categoryList: []
-//  };
-//  const reducer = (state = initialState, action) => {
-//      const {payload} = action
-//     switch (action.type) {
-//        case CATEGORIES_REQUEST:
-//           return {
-//              ...state,
-//              isLoading: true
-//           }
-//        case CATEGORIES_SUCCESS:
-//           return{
-//              ...state,
-//              categoryList: payload,
-//              isLoading: false
-//           }
-//        default:
-//           return state;
-//     }
-//  }
-//  export default reducer;
-
-// different approach 
-
 import { createReducer } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 import { CategoriesTypes } from '../actions/categoryListActions'
@@ -46,7 +18,6 @@ export const INITIAL_STATE = Immutable({
    errorRandomJoke: null,
    errorJokeList: null,
 })
-
 
 /* ------------- Reducers ------------- */
 
