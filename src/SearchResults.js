@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import Pagination from 'rc-pagination';
 import localeInfo from './locale/en_US'
+import Loading from "./Loading";
 
 const SearchResults = () => {
   // fetch from redux state
@@ -19,8 +20,12 @@ const SearchResults = () => {
     offset: 0
   });
   const [paginatedResult, setPaginatedResult] = useState([]);
+  const [loadingResults, setLoadingResults] = useState(true);
 
   useEffect(() => {
+    let loadingResults = fetchingListOfJokes
+    setLoadingResults(loadingResults)
+
     if (jokeList && !fetchingListOfJokes) {
       setJokeResults(jokeList)
       setState((state) => { return { ...state, total: jokeList.total, resultsArray: jokeList.result } })
@@ -48,16 +53,17 @@ const SearchResults = () => {
       <SearchBar />
       <h2>Results </h2>
       <div className="category"></div>
-      {paginatedResult.length > 0 && paginatedResult?.map((item, key) =>
+      {loadingResults && <Loading />}
+      {(paginatedResult.length > 0 && !loadingResults) && paginatedResult?.map((item, key) =>
         <div className="jokeResults-preview" key={key}>
           <Link to={`/JokeDetails/${item.id}`}>
             <div onClick={() => onClickHandler(item.value)}>
-              {item.value.slice(0, 100)}...
+              {item.value.slice(0, 60)}...
             </div>
           </Link>
         </div>
       )}
-      {showPagination &&
+      {(showPagination && !loadingResults) &&
         <div className="pagination">
           <li>
             <Pagination

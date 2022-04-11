@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import CategoriesListActions from './Redux/actions/categoryListActions';
 import { useHistory } from 'react-router-dom';
-
+import Loading from './Loading';
 
 const CategoryList = () => {
     const history = useHistory();
@@ -26,6 +26,7 @@ const CategoryList = () => {
     const [fetchJoke, setFetchJoke] = useState(false);
     const [categories, setCategories] = useState([]);
     const [joke, setJoke] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getCategoryList();
@@ -33,6 +34,8 @@ const CategoryList = () => {
     }, [])
 
     useEffect(() => {
+        let loading = fetchingCategoryList
+        setLoading(loading)
         if (categoryList && !fetchingCategoryList) {
             setCategories(categoryList)
         }
@@ -54,7 +57,8 @@ const CategoryList = () => {
 
     const onRandomJokeBtnClick = (joke) => {
         getRandomJoke(joke);
-        setJoke(true)    }
+        setJoke(true)
+    }
 
     return (
 
@@ -62,7 +66,8 @@ const CategoryList = () => {
             <button onClick={onRandomJokeBtnClick}>Random Joke</button>
             <h3>List of Categories</h3>
             <div className="category"></div>
-            {categories && categories.map((item, key) =>
+            {loading && <Loading />}
+            {(categories && !loading) && categories.map((item, key) =>
                 <div className="category-preview" key={key}>
                     <div onClick={() => onClickHandler(item)}>
                         {item}
